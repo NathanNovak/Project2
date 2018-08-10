@@ -4,7 +4,7 @@ var $ageText = $("#age-text");
 var $emailText = $("#email-text");
 // var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+// var $nameList = $("#name-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -16,14 +16,16 @@ var API = {
       type: "POST",
       url: "api/Users",
       data: JSON.stringify(UserInfo)
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/Users",
-      type: "GET"
+    }).then(function(data) {
+      console.log("DATA From POST", data);
     });
   }
+  // getExamples: function () {
+  //   return $.ajax({
+  //     url: "api/Users",
+  //     type: "GET"
+  //   });
+  // }
   // deleteExample: function(id) {
   //   return $.ajax({
   //     url: "api/examples/" + id,
@@ -33,33 +35,52 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      // var $a = $("<a>")
-      //   .text(example.text)
-      //   .attr("href", "/example/" + example.id);
+// var refreshExamples = function() {
+//   // API.getExamples().then(function (data) {
+//   // var $a = $("<p>").text(UserInfo.name);
+//   //   .attr("href", "/example/" + example.id);
+//   $.ajax({
+//     url: "api/Users",
+//     type: "GET"
+//   }).then(function(data) {
+//     console.log("API GET", data);
+//     var namesArr = [];
+//     for (var i = 0; i < data.length; i++) {
+//       console.log("Names:", data[i].name);
+//       namesArr.push(data[i].name);
+//     }
+//     console.log(namesArr);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
+//     // res.render(namesArr);
+//   });
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+//   // var names = Object.values(data)
+//   // console.log("Data", names);
 
-      $li.append($button);
+//   //  names = Object.values(data){
+//   //   for (var name in names){
+//   //     console.log(name);
+//   //   }
+//   // }
+//   // var $li = $("<li>")
+//   //   .attr({
+//   //     class: "list-group-item",
+//   //     "data-id": UserInfo.id
+//   //   })
+//   //   .append($a);
+//   // console.log("$li", $li),
+//   // var $button = $("<button>")
+//   //   .addClass("btn btn-danger float-right delete")
+//   //   .text("ｘ");
 
-      return $li;
-    });
+//   // $li.append($button);
 
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
+//   // return $li;
+
+//   // $nameList.empty();
+//   // $nameList.append();
+//   // });
+// };
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
@@ -77,14 +98,14 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveExample(UserInfo).then(function() {
-    refreshExamples();
-  });
+  API.saveExample(UserInfo);
+  // .then(function () {
+  //   refreshExamples();
+  // });
 
-
-  $nameText.val("");
-  $ageText.val("");
-  $emailText.val("");
+  // $nameText.val("");
+  // $ageText.val("");
+  // $emailText.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -101,5 +122,5 @@ var handleFormSubmit = function(event) {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-console.log($nameText, $ageText, $emailText);
+// console.log($nameText, $ageText, $emailText);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
