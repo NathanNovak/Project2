@@ -20,12 +20,12 @@
           </div> --}}
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
-        <h3>Examples:</h3>
+        <h3>People Here:</h3>
         <ul id="name-list" class="list-group">
-          {{#each UserInfo}}
+          {{#each Users}}
           <li data-id="{{this.id}}" class="list-group-item">
-            {{this.name}}
-            {{!-- <button class="btn btn-danger float-right delete">ｘ</button> --}}
+            {{name}}
+            <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
         </ul>
