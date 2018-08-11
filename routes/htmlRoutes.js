@@ -18,6 +18,16 @@ module.exports = function(app) {
       res.render("index", hbsObject);
     });
   });
+  app.get("/top", function(req, res) {
+    const daBeer = [
+     {
+        beerName: 'Bud',
+        brewery: 'Misfdasf',
+        rating: 5
+      }
+    ]
+    res.render("leaderboard", {daBeer:daBeer})
+  })
 };
 
 // // Load example page and pass in an example by id
