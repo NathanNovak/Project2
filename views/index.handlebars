@@ -1,9 +1,16 @@
 <div id="home">
-  <div class="container">
+  <div class="container jumbotron">
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
         <h2>Welcome To Beer Me!</h2>
+
+      </div>
+    </div>
+  </div>
+  <div class="container jumbotron">
+    <div class="row">
+      <div class="col-md-6">
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="example-text">What's Your Name?</label>
@@ -12,27 +19,33 @@
             <input type="text" id="age-text" class="form-control" aria-describedby="age-text" placeholder="Enter Age">
             <label for="example-text">What's Your Email?</label>
             <input type="email" id="email-text" class="form-control" aria-describedby="email-text" placeholder="Enter Email">
-
+            <label for="exampleFormControlSelect1">Example select</label>
+              <select class="form-control" id="beer-select">
+                <option>Beer 1</option>
+                <option>Beer 2</option>
+                <option>Beer 3</option>
+                <option>Beer 4</option>
+                <option>Beer 5</option>
+              </select>
+            <button id="submit" class="btn btn-primary float-right">Submit</button>
           </div>
-          {{!-- <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div> --}}
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+          </div>
+          <div class="col-md-6">
         </form>
         <h3>People Here:</h3>
         <ul id="name-list" class="list-group">
           {{#each Users}}
           <li data-id="{{this.id}}" class="list-group-item">
-            {{name}}
-            <button class="btn btn-danger float-right delete">ｘ</button>
+            {{name}} is drinking {{beer}}
+            {{!--<button class="btn btn-danger float-right delete">ｘ</button> --}}
           </li>
           {{/each}}
         </ul>
+        </div>
+
       </div>
     </div>
   </div>
-</div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/js/index.js"></script>
