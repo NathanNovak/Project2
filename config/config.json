@@ -4,6 +4,7 @@
     "password": "root",
     "database": "Beer_Me_DB",
     "host": "localhost",
+    "port":"8889",
     "dialect": "mysql"
   },
   "test": {
