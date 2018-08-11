@@ -1,3 +1,5 @@
+"use strict";
+
 var db = require("../models");
 
 module.exports = function(app) {
@@ -8,7 +10,11 @@ module.exports = function(app) {
       for (var i = 0; i < dbUsers.length; i++) {
         console.log("Names:", dbUsers[i].name);
         var names = dbUsers[i].name;
-        namesArr.push({ name: names });
+        var beer = dbUsers[i].beer;
+        namesArr.push({
+          name: names,
+          beer: beer
+        });
       }
       console.log(namesArr);
       var hbsObject = {

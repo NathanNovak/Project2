@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = function(sequelize, DataTypes) {
   var Rating = sequelize.define("Rating", {
     rating: DataTypes.INTEGER

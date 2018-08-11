@@ -1,7 +1,10 @@
+"use strict";
+
 // Get references to page elements
 var $nameText = $("#name-text");
 var $ageText = $("#age-text");
 var $emailText = $("#email-text");
+var $beerSelect = $("#beer-select");
 // var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 // var $nameList = $("#name-list");
@@ -81,7 +84,6 @@ var API = {
 //   // $nameList.append();
 //   // });
 // };
-
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
@@ -90,9 +92,11 @@ var handleFormSubmit = function(event) {
   var UserInfo = {
     name: $nameText.val().trim(),
     age: $ageText.val().trim(),
-    email: $emailText.val().trim()
+    email: $emailText.val().trim(),
+    beer: $beerSelect.val().trim()
   };
 
+  console.log("UserInfo", UserInfo);
   if (!(UserInfo.name && UserInfo.age)) {
     alert("You must enter your name and age so we know you can be here!");
     return;
