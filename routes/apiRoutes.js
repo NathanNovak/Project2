@@ -8,9 +8,21 @@ module.exports = function(app) {
         // burgers:  [{burger_name: dbburgers}]
         Users: dbUsers
       };
-      console.log("OBJECT IN GET", hbsObject);
+      console.log("OBJECT IN Users GET", hbsObject);
       res.render("index", hbsObject);
       res.json(dbUsers);
+    });
+  });
+
+  app.get("/api/Beer", function(req, res) {
+    db.Beer.findAll({}).then(function(dbBeer) {
+      var beerObject = {
+        Beer: dbBeer
+      };
+
+      console.log("OBJECT IN Beer GET", beerObject);
+      res.render("index", beerObject);
+      res.json(dbBeer);
     });
   });
 
@@ -18,6 +30,14 @@ module.exports = function(app) {
   app.post("/api/Users", function(req, res) {
     db.Users.create(req.body).then(function(dbUsers) {
       res.json(dbUsers);
+    });
+  });
+
+  app.post("/api/Rating", function(req, res) {
+    console.log("REQ.BODY for Rating", req.body);
+
+    db.Rating.create(req.body).then(function(dbRating) {
+      res.json(dbRating);
     });
   });
 

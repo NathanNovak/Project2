@@ -12,12 +12,12 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
-    Rating.belongsTo(models.Users, {
-      as: "Users ",
-      foreignKey: {
-        allowNull: false
-      }
-    });
+    // Rating.belongsTo(models.Users, {
+    //   as: "Users ",
+    //   foreignKey: {
+    //     allowNull: false
+    //   }
+    // });
   };
 
   return Rating;
