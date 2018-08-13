@@ -1,9 +1,9 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Load index page
-  app.get("/", function(req, res) {
-    db.Users.findAll({}).then(function(dbUsers) {
+  app.get("/", function (req, res) {
+    db.Users.findAll({}).then(function (dbUsers) {
       var namesArr = [];
       for (var i = 0; i < dbUsers.length; i++) {
         console.log("Names:", dbUsers[i].name);
@@ -18,18 +18,18 @@ module.exports = function(app) {
       res.render("index", hbsObject);
     });
   });
-  app.get("/top", function(req, res) {
-    const daBeer = [
-     {
-        beerName: 'Bud',
-        brewery: 'Misfdasf',
+  app.get("/top", function (req, res) {
+    var daBeer = [
+      {
+        beerName: "Bud",
+        brewery: "Misfdasf",
+        ibu: 15,
         rating: 5
       }
-    ]
-    res.render("leaderboard", {daBeer:daBeer})
-  })
+    ];
+    res.render("leaderboard", { daBeer: daBeer });
+  });
 };
-
 // // Load example page and pass in an example by id
 // app.get("/example/:id", function (req, res) {
 //   db.Example.findOne({where: {id: req.params.id}}).then(function (
