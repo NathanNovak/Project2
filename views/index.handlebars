@@ -1,7 +1,28 @@
+<nav class="level is-mobile" id="navbar">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">
+        <a href="/top">Leaderboard</p>
+      </a>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Users</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">
+        <a href="/api/Users">Home</p>
+      </a>
+    </div>
+  </div>
+</nav>
 <div id="home">
 
-  {{!-- MODAL --}}
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  {{!-- MODAL
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -11,22 +32,23 @@
           </button>
         </div>
         <div class="modal-body">
-             <label for="exampleFormControlSelect1">Example select</label>
-            <select class="form-control" id="beer-rating">
-              <option value="1">Eh</option>
-              <option value="2">Alright</option>
-              <option value="3">Good</option>
-              <option value="4">Damn Good</option>
-              <option value="5">I Have Found God's Nectar</option>
-            </select>
+          <label for="exampleFormControlSelect1">Example select</label>
+          <select class="form-control" id="beer-rating">
+            <option value="1">Eh</option>
+            <option value="2">Alright</option>
+            <option value="3">Good</option>
+            <option value="4">Damn Good</option>
+            <option value="5">I Have Found God's Nectar</option>
+          </select>
+          <textarea id="beer-comment" rows="4" placeholder="Let us know what you liked about the beer."></textarea>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="save-rating">Save changes</button>
+          <button type="button" class="btn btn-primary" id="save-rating" data-show="myModal">Save changes</button>
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
 
   <div class="container jumbotron">
@@ -43,13 +65,13 @@
       <div class="col-md-6">
 
         <form class="clearfix mb-4" id="myForm">
-          <div class="form-group">
-            <label for="example-text">What's Your Name?</label>
-            <input type="text" id="name-text" class="form-control" aria-describedby="name-text" placeholder="Enter Name">
+          <div class="control">
+            <label for="example-text">What's Your Username?</label>
+            <input type="text" required id="name-text" class="input" aria-describedby="name-text" placeholder="Enter Username"> {{!--
             <label for="age-text">How Old Are You?</label>
-            <input type="text" id="age-text" class="form-control" aria-describedby="age-text" placeholder="Enter Age">
+            <input type="text" id="age-text" class="form-control" aria-describedby="age-text" placeholder="Enter Age"> --}}
             <label for="example-text">What's Your Email?</label>
-            <input type="email" id="email-text" class="form-control" aria-describedby="email-text" placeholder="Enter Email"> {{!--
+            <input type="email" required id="email-text" class="form-control" aria-describedby="email-text" placeholder="Enter Email"> {{!--
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
@@ -66,23 +88,27 @@
             <select class="form-control" id="beer-select">
               {{#each Beer}}
               <option value="{{id}}">{{beerName}}</option>
-              {{!-- <option>Beer 2</option>
-              <option>Beer 3</option>
-              <option>Beer 4</option>
-              <option>Beer 5</option> --}}
               {{/each}}
             </select>
-           
-            <button id="myForm" class="btn btn-primary float-right " data-toggle="modal" data-target="#myModal">Submit</button>
+            <select class="form-control" id="beer-rating">
+              <option value="1">Eh</option>
+              <option value="2">Alright</option>
+              <option value="3">Good</option>
+              <option value="4">Damn Good</option>
+              <option value="5">I Have Found God's Nectar</option>
+            </select>
+            <textarea id="beer-comment" rows="4" placeholder="Let us know what you liked about the beer."></textarea>
+
+            <button type='submit' id="myForm" class="btn btn-primary float-right " data-toggle="modal">Submit</button>
           </div>
-          
+        </form>
       </div>
       <div class="col-md-6">
         </form>
         <h3>People Here:</h3>
         <ul id="name-list" class="list-group">
           {{#each Users}}
-          <li data-id="{{this.id}}" class="list-group-item">
+          <li value="{{id}}" class="list-group-item">
             {{name}} is drinking {{beer}} {{!--
             <button class="btn btn-danger float-right delete">ｘ</button> --}}
           </li>
