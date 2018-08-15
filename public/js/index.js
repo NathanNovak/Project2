@@ -1,126 +1,99 @@
-// Get references to page elements
-var $nameText = $("#name-text");
-var $ageText = $("#age-text");
-var $emailText = $("#email-text");
-// var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-// var $nameList = $("#name-list");
+"use strict";
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(UserInfo) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/Users",
-      data: JSON.stringify(UserInfo)
-    }).then(function(data) {
-      console.log("DATA From POST", data);
-    });
-  }
-  // getExamples: function () {
-  //   return $.ajax({
-  //     url: "api/Users",
-  //     type: "GET"
-  //   });
-  // }
-  // deleteExample: function(id) {
-  //   return $.ajax({
-  //     url: "api/examples/" + id,
-  //     type: "DELETE"
-  //   });
-  // }
-};
+$(document).ready(function() {
+  // Get references to page elements
+  var $ageText = $("#age-text");
+  var $beerSelect = $("#beer-select");
+  var $beerRating = $("#beer-rating");
+  var $emailText = $("#email-text");
+  var $nameText = $("#name-text");
+  // var $submitBtn = $("#submit");
+  // var $saveRating = $("#save-rating");
 
-// refreshExamples gets new examples from the db and repopulates the list
-// var refreshExamples = function() {
-//   // API.getExamples().then(function (data) {
-//   // var $a = $("<p>").text(UserInfo.name);
-//   //   .attr("href", "/example/" + example.id);
-//   $.ajax({
-//     url: "api/Users",
-//     type: "GET"
-//   }).then(function(data) {
-//     console.log("API GET", data);
-//     var namesArr = [];
-//     for (var i = 0; i < data.length; i++) {
-//       console.log("Names:", data[i].name);
-//       namesArr.push(data[i].name);
-//     }
-//     console.log(namesArr);
+  // var $exampleDescription = $("#example-description");
+  // var $nameList = $("#name-list");
 
-//     // res.render(namesArr);
-//   });
-
-//   // var names = Object.values(data)
-//   // console.log("Data", names);
-
-//   //  names = Object.values(data){
-//   //   for (var name in names){
-//   //     console.log(name);
-//   //   }
-//   // }
-//   // var $li = $("<li>")
-//   //   .attr({
-//   //     class: "list-group-item",
-//   //     "data-id": UserInfo.id
-//   //   })
-//   //   .append($a);
-//   // console.log("$li", $li),
-//   // var $button = $("<button>")
-//   //   .addClass("btn btn-danger float-right delete")
-//   //   .text("ｘ");
-
-//   // $li.append($button);
-
-//   // return $li;
-
-//   // $nameList.empty();
-//   // $nameList.append();
-//   // });
-// };
-
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault();
-
-  var UserInfo = {
-    name: $nameText.val().trim(),
-    age: $ageText.val().trim(),
-    email: $emailText.val().trim()
+  // The API object contains methods for each kind of request we'll make
+  var API = {
+    saveExample: function(UserInfo) {
+      return $.ajax({
+        headers: {
+          "Content-Type": "application/json"
+        },
+        type: "POST",
+        url: "api/Users",
+        data: JSON.stringify(UserInfo)
+      }).then(function(data) {
+        console.log("DATA From POST", data);
+      });
+    },
+    postRating: function(Rating) {
+      $.ajax({
+        url: "api/Rating",
+        type: "POST",
+        data: Rating
+      }).then(function(ratingData) {
+        console.log("DATA From Rating POST", ratingData);
+      });
+    }
   };
 
-  if (!(UserInfo.name && UserInfo.age)) {
-    alert("You must enter your name and age so we know you can be here!");
-    return;
+  // handleFormSubmit is called whenever we submit a new example
+  // Save the new example to the db and refresh the list
+  $("#myForm").on("submit", function(e) {
+    e.preventDefault();
+    handleFormSubmit(e);
+    // console.log("test");
+    // $('#myModal').modal('toggle')
+  });
+
+  $("#save-rating").on("click", function() {
+    ratingScale();
+  });
+
+  var handleFormSubmit = function(event) {
+    event.preventDefault();
+
+    var UserInfo = {
+      name: $nameText.val().trim(),
+      age: $ageText.val().trim(),
+      email: $emailText.val().trim(),
+      BeerId: $beerSelect.val()
+    };
+
+    console.log("UserInfo", UserInfo);
+    // if (!(UserInfo.name && UserInfo.age)) {
+    //   alert("You must enter your name and age so we know you can be here!");
+    //   return;
+    // }
+
+    API.saveExample(UserInfo);
+    // .then(function () {
+    //   refreshExamples();
+    // });
+
+    // $nameText.val("");
+    // $ageText.val("");
+    // $emailText.val("");
+    // $beerSelect.val("");
+  };
+
+  function ratingScale() {
+    // event.preventDefault();
+
+    var Rating = {
+      rating: $beerRating.val().trim(),
+      BeerId: $beerSelect.val()
+      // UsersId: ""
+    };
+    console.log(Rating.rating, "Rating");
+    API.postRating(Rating);
+    location.reload();
   }
 
-  API.saveExample(UserInfo);
-  // .then(function () {
-  //   refreshExamples();
-  // });
-
-  // $nameText.val("");
-  // $ageText.val("");
-  // $emailText.val("");
-};
-
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-// var handleDeleteBtnClick = function() {
-//   var idToDelete = $(this)
-//     .parent()
-//     .attr("data-id");
-
-//   API.deleteExample(idToDelete).then(function() {
-//     refreshExamples();
-//   });
-// };
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-// console.log($nameText, $ageText, $emailText);
-// $exampleList.on("click", ".delete", handleDeleteBtnClick);
+  // Add event listeners to the submit and delete buttons
+  // $submitBtn.on("click", handleFormSubmit);
+  // $saveRating.on("click", ratingScale);
+  // console.log($nameText, $ageText, $emailText);
+  // $exampleList.on("click", ".delete", handleDeleteBtnClick);
+});
