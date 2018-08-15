@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Leaderboard</h5>
+          <table style="width:100%">
+            <tr>
+              <th>Beer name</th>
+              <th>Brewery</th>
+              <th>IBU</th>
+              <th>Rating</th>
+            </tr>
+            <tr>
+              {{#each daBeer}}
+                <td><a href="localhost:8080/beers/{{this.beerId}}">{{ this.beerName }}</a></td>
+                <td>{{ this.brewery }}</td>
+                <td>{{ this.ibu }}</td>
+                <td>{{ this.rating }}</td>
+              {{/each}}
+            </tr>
+          </table>
+          <button type="button" class="btn btn-success">Most recent</button>
+          <ul>
+            {{!-- {{#each beer}} {{/each}} --}}
+          </ul>
+          <a href="/">← Back To Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

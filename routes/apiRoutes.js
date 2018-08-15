@@ -2,11 +2,10 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/Users", function(req, res) {
-    db.Users.findAll({}).then(function(dbUsers) {
+  app.get("/api/beer", function(req, res) {
+    db.beers.findAll({}).then(function(dbBeers) {
       var hbsObject = {
-        // burgers:  [{burger_name: dbburgers}]
-        Users: dbUsers
+        Beers: dbBeers
       };
       console.log("OBJECT IN Users GET", hbsObject);
       res.render("index", hbsObject);
