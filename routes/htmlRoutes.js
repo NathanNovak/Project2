@@ -57,9 +57,17 @@ module.exports = function (app) {
     var daBeer = [
       {
         beerName: "Bud",
-        brewery: "Misfdasf",
+        brewery: "AB-Inbev-Something",
         ibu: 15,
-        rating: 5
+        rating: 2,
+        id: 1
+      },
+      {
+        beerName: "Coors",
+        brewery: "Coors",
+        ibu: 3,
+        rating: 1,
+        id: 2
       }
     ];
     res.render("leaderboard", { daBeer: daBeer });
