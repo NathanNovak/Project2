@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = function(sequelize, DataTypes) {
   var Beer = sequelize.define("Beer", {
     beerName: DataTypes.STRING,
