@@ -10,6 +10,11 @@ body {
   width: 100vw;
 }
 
+#appName {
+  font-size: 1.25em;
+
+}
+
 #tableHead {
   font-size: 1.3em;
   font-family: 'Montserrat', sans-serif;
@@ -37,7 +42,7 @@ body {
 
 #navbar {
   background: white;
-  height: 1.5em;
+  height: 1.65em;
   margin: .5em 0 .5em 0;
 }
 /* .empty_star {
