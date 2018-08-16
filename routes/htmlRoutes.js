@@ -57,14 +57,14 @@ module.exports = function (app) {
     var daBeer = [
       {
         beerName: "Bud",
-        brewery: "AB-Inbev-Something",
+        brewer: "AB-Inbev-Something",
         ibu: 15,
         rating: 2,
         id: 1
       },
       {
         beerName: "Coors",
-        brewery: "Coors",
+        brewer: "Coors",
         ibu: 3,
         rating: 1,
         id: 2
