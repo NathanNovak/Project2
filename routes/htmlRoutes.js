@@ -64,12 +64,14 @@ module.exports = function (app) {
           var output = [];
           for (var i = 0; i < ratingArr.length; i++) {
             // console.log("UserID in Rating", ratingArr[i].UsersId);
-            var userIdInRating = ratingArr[i].UsersId;
+            
             output.push({
-              UsersId: userIdInRating
+              userName: getUserName(ratingArr[i].UsersId, namesArr),
+              beerName: getBeerName(ratingArr[i].BeerId, beerArr),
+              comment: ratingArr[i].comment
             });
           }
-          console.log("UserID in output", output);
+          // console.log("UserID in output", output);
           if (namesArr.name === output.UsersId) {
             // console.log(ratingArr.beerId);
           }
@@ -82,6 +84,7 @@ module.exports = function (app) {
           //   ]
           // };
           var beerhbsObject = {
+            Output: output,
             Beer: beerArr,
             Rating: ratingArr,
             Users: namesArr
@@ -114,6 +117,25 @@ module.exports = function (app) {
     res.render("leaderboard", { daBeer: daBeer });
   });
 };
+
+function getUserName(usersId, names){
+  for (var i = 0; i < names.length; i++){
+    if (names[i].id === usersId){
+      return names[i].name;
+    }
+  }
+}
+
+function getBeerName(beerId, beerName){
+  for (var i = 0; i < beerName.length; i++){
+    if (beerName[i].id === beerId){
+      // console.log("ttt", beerName[i].beerName);
+      return beerName[i].beerName;
+    }
+  }
+}
+
+
 // // Load example page and pass in an example by id
 // app.get("/example/:id", function (req, res) {
 //   db.Example.findOne({where: {id: req.params.id}}).then(function (
