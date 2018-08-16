@@ -1,7 +1,9 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
+  // --------------------------
+  //         Users
+  // --------------------------
   app.get("/api/Users", function(req, res) {
     db.Users.findAll({}).then(function(dbUsers) {
       var hbsObject = {
@@ -40,6 +42,15 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/api/Users", function(req, res) {
+    db.Users.create(req.body).then(function(dbUsers) {
+      res.json(dbUsers);
+    });
+  });
+
+  // --------------------------
+  //         Beer
+  // --------------------------
   app.get("/api/Beer", function(req, res) {
     db.Beer.findAll({}).then(function(dbBeer) {
       var beerObject = {
@@ -52,10 +63,12 @@ module.exports = function(app) {
     });
   });
 
-  // Create a new example
-  app.post("/api/Users", function(req, res) {
-    db.Users.create(req.body).then(function(dbUsers) {
-      res.json(dbUsers);
+  // --------------------------
+  //         Rating
+  // --------------------------
+  app.get("/api/Rating", function(req, res) {
+    db.Rating.findAll({}).then(function(dbRating) {
+      res.json(dbRating);
     });
   });
 
@@ -67,10 +80,23 @@ module.exports = function(app) {
     });
   });
 
-  // Delete an example by id
-  // app.delete("/api/examples/:id", function(req, res) {
-  //   db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-  //     res.json(dbExample);
-  //   });
-  // });
+  app.get("/api/Rating/:BeerId", function(req, res) {
+    var condition = "UserId = " + req.params.UsersId;
+    console.log("condition", condition);
+
+    db.Rating.findAll({
+      where: {
+        BeerId: req.params.BeerId
+      }
+    }).then(function(dbRating) {
+      // console.log(dbRating);
+      res.json(dbRating);
+    });
+  });
+
+  // app.put("/api/Rating/:id", function(req, res){
+  //   db.Rating.update({
+
+  //   })
+  // })
 };
