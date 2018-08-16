@@ -20,28 +20,30 @@ module.exports = function(app) {
       var beerhbsObject = {
         Beer: beerArr
       };
-      // res.send(beerhbsObject);
       res.render("index", beerhbsObject);
-      // db.Users.findAll({}).then(function(dbUsers) {
-      //   var namesArr = [];
-      //   for (var i = 0; i < dbUsers.length; i++) {
-      //     console.log("Names:", dbUsers[i].name);
-      //     var names = dbUsers[i].name;
-      //     var beer = dbUsers[i].beer;
-      //     namesArr.push({
-      //       name: names,
-      //       beer: beer
-      //     });
-      //   }
-      //   console.log(namesArr);
-      //   var hbsObject = {
-      //     Users: namesArr
-      //   };
-
-      //   res.render("index", hbsObject);
-      // });
     });
+    // db.Users.findAll({}).then(function(dbUsers) {
+    //   var namesArr = [];
+    //   for (var i = 0; i < dbUsers.length; i++) {
+    //     console.log("Names:", dbUsers[i]);
+    //     var names = dbUsers[i].name;
+    //     // var beer = dbUsers[i].beer;
+    //     namesArr.push({
+    //       name: names
+    //     });
+    //   }
+    //   console.log(namesArr);
+    //   var hbsObject = {
+    //     Users: namesArr
+    //   };
+
+    //   res.render("index", hbsObject);
+    // });
   });
+
+  // res.send(beerhbsObject);
+  // app.get("/", function(req, res) {
+  // });
 
   // // Load example page and pass in an example by id
   // app.get("/example/:id", function (req, res) {
