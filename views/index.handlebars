@@ -21,37 +21,7 @@
 </nav>
 <div id="home">
 
-  {{!-- MODAL
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">How did you like it?</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <label for="exampleFormControlSelect1">Example select</label>
-          <select class="form-control" id="beer-rating">
-            <option value="1">Eh</option>
-            <option value="2">Alright</option>
-            <option value="3">Good</option>
-            <option value="4">Damn Good</option>
-            <option value="5">I Have Found God's Nectar</option>
-          </select>
-          <textarea id="beer-comment" rows="4" placeholder="Let us know what you liked about the beer."></textarea>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="save-rating" data-show="myModal">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div> --}}
-
-
-  <div class="container jumbotron">
+  <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
@@ -60,7 +30,7 @@
       </div>
     </div>
   </div>
-  <div class="container jumbotron">
+  <div class="container">
     <div class="row">
       <div class="col-md-6">
 
@@ -71,18 +41,8 @@
             <label for="age-text">How Old Are You?</label>
             <input type="text" id="age-text" class="form-control" aria-describedby="age-text" placeholder="Enter Age"> --}}
             <label for="example-text">What's Your Email?</label>
-            <input type="email" required id="email-text" class="form-control" aria-describedby="email-text" placeholder="Enter Email"> {{!--
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                Dropdown button
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div> --}}
+            <input type="email" required id="email-text" class="form-control" aria-describedby="email-text" placeholder="Enter Email">
+
 
             <label for="exampleFormControlSelect1">Example select</label>
             <select class="form-control" id="beer-select">
@@ -106,14 +66,42 @@
       <div class="col-md-6">
         </form>
         <h3>People Here:</h3>
+        {{!--
         <ul id="name-list" class="list-group">
-          {{#each Users}}
+          {{#each Rating}}
           <li value="{{id}}" class="list-group-item">
-            {{name}} is drinking {{beer}} {{!--
-            <button class="btn btn-danger float-right delete">ｘ</button> --}}
+            {{UsersId}} is drinking {{BeerId}} and said
           </li>
           {{/each}}
-        </ul>
+        </ul> --}}
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Guest</th>
+              <th>Beer</th>
+              <th>Comment</th>
+            </tr>
+          </thead>
+          {{#each Rating}}
+          <tr>
+            <td>{{UsersId}}</td>
+            <td>{{BeerId}}</td>
+            <td>{{comment}}</td>
+          </tr>
+          <tr>
+            {{/each}} 
+         
+            {{!--
+            <td>{{#each Rating}}{{BeerId}}{{/each}}</td>
+            <td>{{#each Rating}}{{comment}}{{/each}}</td>
+            {{!--
+            <th>{{#each Users}}{{name}}{{/each}}</th>
+            <td>{{#each Rating}}{{BeerId}}{{/each}}</td>
+            <td>{{#each Rating}}{{comment}}{{/each}}</td>
+          </tr> --}}
+
+
+        </table>
       </div>
 
     </div>
