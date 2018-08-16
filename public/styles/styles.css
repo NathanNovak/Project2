@@ -2,6 +2,15 @@
   line-height: 2.5;
 }
 
+#beer-comment{
+  width: 100%;
+}
+#navbar {
+  background: white;
+  height: 1.5em;
+  margin: .25em 0 .5em 0;
+}
+
 body {
   background-image: url("../img/bg2.jpeg");
   background-size: cover;
@@ -40,21 +49,3 @@ body {
   height: 1.5em;
   margin: .5em 0 .5em 0;
 }
-/* .empty_star {
-  background-image: url(images/empty_star.png);
-  background-size: 20px;
-  height: 20px;
-  width: 20px;
-  background-position: center;
-  }
-  .yellow_star {
-  background-image: url(images/yellow_star.png);
-  background-size: 20px;
-  height: 20px;
-  width: 20px;
-  background-position: center;
-  }
-  table, tr, td {
-  border-collapse: collapse;
-  } */
-
