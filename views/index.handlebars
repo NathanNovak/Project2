@@ -66,8 +66,20 @@
       <div class="col-md-6">
         </form>
         <h3>People Here:</h3>
+
         <table class="table is-narrow comments-table">
           <thead class="comments-table">
+
+        {{!--
+        <ul id="name-list" class="list-group">
+          {{#each Rating}}
+          <li value="{{id}}" class="list-group-item">
+            {{UsersId}} is drinking {{BeerId}} and said
+          </li>
+          {{/each}}
+        </ul> --}}
+        <table class="table">
+          <thead>
             <tr>
               <th>Guest</th>
               <th>Beer</th>
