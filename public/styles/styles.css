@@ -2,6 +2,14 @@
   line-height: 2.5;
 }
 
+.comments-table{
+  background: rgba(82, 71, 71, 0.5);
+  color: aliceblue;
+  font-family: 'Montserrat';
+}
+th {
+  color: aliceblue;
+}
 #beer-comment{
   width: 100%;
 }
