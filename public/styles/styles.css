@@ -19,6 +19,7 @@ body {
   background:rgba(255,255,255,0.2); /* applies a 20% transparent white background */
 }
 
+
 #appName {
   font-size: 1.5em;
   background: black;
@@ -53,11 +54,22 @@ body {
 }
 
 #name-text {
-  width: 70%;
+  width: 65%;
+  margin-left: 0.25em;
+
 }
 
 #email-text {
-  width: 20%;
+  width: 65%;
+  margin-left: 2.5em;
+}
+
+#beer-select {
+  margin-left: .5em;
+}
+
+#beer-rating {
+  margin-left: 2em;
 }
 
 #navbar {
