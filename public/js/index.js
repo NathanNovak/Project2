@@ -2,7 +2,8 @@
 
 $(document).ready(function() {
   // Get references to page elements
-  var $ageText = $("#age-text");
+  // var $ageText = $("#age-text");
+  var $beerComment = $("#beer-comment");
   var $beerSelect = $("#beer-select");
   var $beerRating = $("#beer-rating");
   var $emailText = $("#email-text");
@@ -23,17 +24,30 @@ $(document).ready(function() {
         type: "POST",
         url: "api/Users",
         data: JSON.stringify(UserInfo)
-      }).then(function(data) {
-        console.log("DATA From POST", data);
       });
+      // .then(function(data) {
+      //   console.log("DATA From POST", data);
+      // });
     },
     postRating: function(Rating) {
       $.ajax({
         url: "api/Rating",
         type: "POST",
         data: Rating
-      }).then(function(ratingData) {
-        console.log("DATA From Rating POST", ratingData);
+      }).then(function(data) {
+        console.log("DATA From Rating POST", data);
+      });
+    },
+    getUsers: function() {
+      return $.ajax({
+        url: "api/Users",
+        type: "GET"
+      });
+    },
+    getOneUserByUsername: function(username) {
+      return $.ajax({
+        url: "api/Users/name/" + username,
+        type: "GET"
       });
     }
   };
@@ -43,53 +57,77 @@ $(document).ready(function() {
   $("#myForm").on("submit", function(e) {
     e.preventDefault();
     handleFormSubmit(e);
-    // console.log("test");
-    // $('#myModal').modal('toggle')
   });
 
-  $("#save-rating").on("click", function() {
-    ratingScale();
-  });
+  // $("#save-rating").on("click", function() {
+  //   API.getUsers().then(function(userInfo){
+
+  //     console.log(userInfo);
+  //     console.log($nameText.val());
+  //     for (var i = 0; i < userInfo.length; i++){
+  //       if (userInfo[i].username === $nameText.val()) {
+  //         console.log(userInfo[i].id);
+  //         var userId = userInfo[i].id;
+  //       }
+  //     }
+  //     showRatingScale(userId);
+  //   });
+  // });
 
   var handleFormSubmit = function(event) {
     event.preventDefault();
+    //gets a single user and checks to see if they are already in the DB. If they are then only Rating will post. If they are not then UsersInfo and Rating will post.
+    API.getOneUserByUsername($nameText.val().trim()).then(function(singleUser) {
+      console.log("JSON for username", singleUser);
+      if (!singleUser) {
+        var UserInfo = {
+          username: $nameText.val().trim(),
+          email: $emailText.val().trim()
+        };
+        console.log("UserInfo", UserInfo);
 
-    var UserInfo = {
-      name: $nameText.val().trim(),
-      age: $ageText.val().trim(),
-      email: $emailText.val().trim(),
-      BeerId: $beerSelect.val()
-    };
-
-    console.log("UserInfo", UserInfo);
-    // if (!(UserInfo.name && UserInfo.age)) {
-    //   alert("You must enter your name and age so we know you can be here!");
-    //   return;
-    // }
-
-    API.saveExample(UserInfo);
-    // .then(function () {
-    //   refreshExamples();
-    // });
-
-    // $nameText.val("");
-    // $ageText.val("");
-    // $emailText.val("");
-    // $beerSelect.val("");
+        //saves new user
+        API.saveExample(UserInfo).then(function(data) {
+          console.log("From SaveExample", data);
+          setRating(data.id);
+        });
+      } else {
+        if ($emailText.val() === singleUser.email) {
+          console.log("Match");
+          setRating(singleUser.id);
+        } else {
+          alert(
+            $emailText.val() +
+              " does not match the email on file for this username. Either pick a new username or enter the email associated with the current username."
+          );
+        }
+      }
+    });
   };
 
-  function ratingScale() {
-    // event.preventDefault();
-
+  //set the rating for new or existing user
+  function setRating(userId) {
     var Rating = {
-      rating: $beerRating.val().trim(),
-      BeerId: $beerSelect.val()
-      // UsersId: ""
+      rating: $beerRating.val(),
+      comment: $beerComment.val(),
+      UsersId: userId,
+      BeerId: parseInt($beerSelect.val())
     };
-    console.log(Rating.rating, "Rating");
+    console.log("Rating", Rating);
     API.postRating(Rating);
-    location.reload();
   }
+  // function showRatingScale(userId) {
+  //   console.log("In showRatings", userId);
+  //   var Rating = {
+  //     rating: $beerRating.val().trim(),
+  //     BeerId: $beerSelect.val(),
+  //     comment: $beerComment.val(),
+  //     UsersId: 1
+  //   };
+  //   console.log("Rating", Rating);
+  //   API.postRating(Rating);
+  //   // location.reload();
+  // }
 
   // Add event listeners to the submit and delete buttons
   // $submitBtn.on("click", handleFormSubmit);
