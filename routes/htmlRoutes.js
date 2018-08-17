@@ -167,7 +167,7 @@ module.exports = function (app) {
           //     }
           //   ]
           // };
-          console.log('BEERARRAY', beerArr);
+          console.log("BEERARRAY", beerArr);
           var leaderboard = {
             Output: output,
             Beer: beerArr,

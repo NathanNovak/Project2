@@ -70,7 +70,7 @@ module.exports = function(app) {
       var hbsObject = {
         Beers: dbBeers
       };
-      // console.log("OBJECT IN Users GET", hbsObject);
+      console.log("OBJECT IN Users GET", hbsObject);
 
       res.json(dbBeers);
     });
