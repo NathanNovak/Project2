@@ -26,30 +26,70 @@ module.exports = function (app) {
         });
 
       }
-      console.log(beerArr);
-      var beerhbsObject = {
-        Beer: beerArr
-      };
-      // res.send(beerhbsObject);
-      res.render("index", beerhbsObject);
-      // db.Users.findAll({}).then(function(dbUsers) {
-      //   var namesArr = [];
-      //   for (var i = 0; i < dbUsers.length; i++) {
-      //     console.log("Names:", dbUsers[i].name);
-      //     var names = dbUsers[i].name;
-      //     var beer = dbUsers[i].beer;
-      //     namesArr.push({
-      //       name: names,
-      //       beer: beer
-      //     });
-      //   }
-      //   console.log(namesArr);
-      //   var hbsObject = {
-      //     Users: namesArr
-      //   };
+      db.Users.findAll({}).then(function(dbUsers) {
+        var namesArr = [];
+        for (var i = 0; i < dbUsers.length; i++) {
+          // console.log("Names:", dbUsers[i]);
+          var names = dbUsers[i].username;
+          var id = dbUsers[i].id;
+          // var beer = dbUsers[i].beer;
+          namesArr.push({
+            id: id,
+            name: names
+          });
+        }
 
-      //   res.render("index", hbsObject);
-      // });
+
+        db.Rating.findAll({}).then(function(dbRating) {
+          var ratingArr = [];
+          for (var i = 0; i < dbRating.length; i++) {
+            // console.log("Names:", dbUsers[i]);
+            var userId = dbRating[i].UsersId;
+            var beerId = dbRating[i].BeerId;
+            var comment = dbRating[i].comment;
+            ratingArr.push({
+              UsersId: userId,
+              BeerId: beerId,
+              comment: comment
+            });
+          }
+
+          console.log(beerArr);
+          console.log("------------------");
+          console.log(namesArr);
+          console.log("------------------");
+          console.log(ratingArr);
+
+          var output = [];
+          for (var i = 0; i < ratingArr.length; i++) {
+            // console.log("UserID in Rating", ratingArr[i].UsersId);
+            var userIdInRating = ratingArr[i].UsersId;
+            output.push({
+              UsersId: userIdInRating
+            });
+          }
+          console.log("UserID in output", output);
+          if (namesArr.name === output.UsersId) {
+            // console.log(ratingArr.beerId);
+          }
+          // var hbsObject = {
+          //   data: [{
+          //     namesArr: names,
+          //     ratingArr: comment,
+          //     beerArr: beerId
+          //     }
+          //   ]
+          // };
+          var beerhbsObject = {
+            Beer: beerArr,
+            Rating: ratingArr,
+            Users: namesArr
+          };
+          res.render("index", beerhbsObject);
+          // console.log("hbObject", hbsObject);
+          // res.render("index", hbsObject);
+        });
+      });
     });
   });
 
