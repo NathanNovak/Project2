@@ -30,7 +30,7 @@ $(document).ready(function() {
       // });
     },
     postRating: function(Rating) {
-      $.ajax({
+      return $.ajax({
         url: "api/Rating",
         type: "POST",
         data: Rating
@@ -103,6 +103,7 @@ $(document).ready(function() {
         }
       }
     });
+    
   };
 
   //set the rating for new or existing user
@@ -114,7 +115,10 @@ $(document).ready(function() {
       BeerId: parseInt($beerSelect.val())
     };
     console.log("Rating", Rating);
-    API.postRating(Rating);
+    API.postRating(Rating).then(function(){
+      location.reload();
+    });
+
   }
   // function showRatingScale(userId) {
   //   console.log("In showRatings", userId);

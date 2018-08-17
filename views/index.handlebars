@@ -66,11 +66,14 @@
       <div class="col-md-6">
         </form>
         <h3>People Here:</h3>
+<<<<<<< HEAD
+=======
         {{!--
         <ul id="name-list" class="list-group">
           {{#each Rating}}
           <li value="{{id}}" class="list-group-item">
             {{UsersId}} is drinking {{BeerId}} and said
+>>>>>>> 147c8dd87236c22794389f8a9c08c14fbb27cc16
           </li>
           {{/each}}
         </ul> --}}
@@ -82,25 +85,13 @@
               <th>Comment</th>
             </tr>
           </thead>
-          {{#each Rating}}
+          {{#each Output}}
           <tr>
-            <td>{{UsersId}}</td>
-            <td>{{BeerId}}</td>
+            <td>{{userName}}</td>
+            <td>{{beerName}}</td>
             <td>{{comment}}</td>
           </tr>
-          <tr>
-            {{/each}} 
-         
-            {{!--
-            <td>{{#each Rating}}{{BeerId}}{{/each}}</td>
-            <td>{{#each Rating}}{{comment}}{{/each}}</td>
-            {{!--
-            <th>{{#each Users}}{{name}}{{/each}}</th>
-            <td>{{#each Rating}}{{BeerId}}{{/each}}</td>
-            <td>{{#each Rating}}{{comment}}{{/each}}</td>
-          </tr> --}}
-
-
+          {{/each}}
         </table>
       </div>
 
