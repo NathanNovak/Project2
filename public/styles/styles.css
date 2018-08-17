@@ -15,26 +15,11 @@ html, body {
 html {
   background:url(../img/bg2.jpeg) no-repeat center;
 }
-<<<<<<< HEAD
-=======
-#beer-comment{
-  width: 100%;
-}
-=======
 
-#beer-comment{
-  width: 100%;
-}
-
->>>>>>> leaderboard
 #navbar {
   background: white;
   height: 1.5em;
   margin: .25em 0 .5em 0;
-<<<<<<< HEAD
-
-=======
->>>>>>> leaderboard
 }
 
 body {
