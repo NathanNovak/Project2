@@ -2,10 +2,6 @@
   line-height: 2.5;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> leaderboard
 html, body {
   height:100%;
   padding: 0;
@@ -15,6 +11,10 @@ html, body {
 html {
   background:url(../img/bg2.jpeg) no-repeat center;
 }
+#beer-comment{
+  width: 100%;
+}
+
 
 #navbar {
   background: white;
