@@ -2,14 +2,17 @@
   line-height: 2.5;
 }
 
-.comments-table{
-  background: rgba(82, 71, 71, 0.5);
-  color: aliceblue;
-  font-family: 'Montserrat';
+
+html, body {
+  height:100%;
+  padding: 0;
+  margin: 0;
 }
-th {
-  color: aliceblue;
+
+html {
+  background:url(../img/bg2.jpeg) no-repeat center;
 }
+=======
 #beer-comment{
   width: 100%;
 }
@@ -17,14 +20,16 @@ th {
   background: white;
   height: 1.5em;
   margin: .25em 0 .5em 0;
+
 }
 
 body {
-  background-image: url("../img/bg2.jpeg");
-  background-size: cover;
-  background-color: #cccccc;
-  height: 100vh;
-  width: 100vw;
+  background:rgba(255,255,255,0.5); /* applies a 50% transparent white background */
+}
+
+#appName {
+  font-size: 1.25em;
+
 }
 
 #tableHead {
@@ -35,7 +40,7 @@ body {
 #tableRow{
   font-size: 1.1em;
   font-family: 'Montserrat', sans-serif;
-  line-height: 1.5em;
+  line-height: 1.6em;
 }
 #title {
   font-size: 2.25em;
@@ -44,8 +49,8 @@ body {
 }
 
 #leaderboard {
-  margin: 1em;
-  border-radius: 5%;
+  padding: 1em;
+  z-index: 0;  
 }
 
 #box {
@@ -54,6 +59,7 @@ body {
 
 #navbar {
   background: white;
-  height: 1.5em;
+  height: 1.65em;
   margin: .5em 0 .5em 0;
+  z-index: 0;
 }
