@@ -1,4 +1,11 @@
-<nav class="level is-mobile" id="navbar">
+{{!-- nav bar --}}
+<nav class="level is-mobile is-light" id="navbar">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading" id="appName">
+        Beer Me!</p>
+    </div>
+  </div>
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">
@@ -8,43 +15,36 @@
   </div>
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">Users</p>
-    </div>
-  </div>
-  <div class="level-item has-text-centered">
-    <div>
       <p class="heading">
-        <a href="/api/Users">Home</p>
+        <a href="/">Home</p>
       </a>
     </div>
   </div>
 </nav>
-<div id="home">
 
-  <div class="container">
+<div class="container" id="box">
     <div class="row">
-      <div class="col-8 offset-2">
+      <div class="card">
         <h1>{{msg}}</h1>
-        <h2>Welcome To Beer Me!</h2>
-
-      </div>
-    </div>
-  </div>
-  <div class="container">
+        <div class="card-header card-header-title" id="title">Welcome to Beer Me!</div>
+        <div class="container">
     <div class="row">
-      <div class="col-md-6">
-
-        <form class="clearfix mb-4" id="myForm">
+      <div>
+        <form id="myForm">
           <div class="control">
             <label for="example-text">What's Your Username?</label>
-            <input type="text" required id="name-text" class="input" aria-describedby="name-text" placeholder="Enter Username"> {{!--
+            <input class="input is-warning" required id="name-text" type="text" placeholder="Enter username" aria-describedby="name-text">    
+            <br>
+                  {{!--
             <label for="age-text">How Old Are You?</label>
             <input type="text" id="age-text" class="form-control" aria-describedby="age-text" placeholder="Enter Age"> --}}
+
+            
             <label for="example-text">What's Your Email?</label>
-            <input type="email" required id="email-text" class="form-control" aria-describedby="email-text" placeholder="Enter Email">
+            <input type="email" required id="email-text" class="input is-warning" aria-describedby="email-text" placeholder="Enter Email">
 
 
-            <label for="exampleFormControlSelect1">Example select</label>
+            <label for="exampleFormControlSelect1">Rate it</label>
             <select class="form-control" id="beer-select">
               {{#each Beer}}
               <option value="{{id}}">{{beerName}}</option>
@@ -70,34 +70,37 @@
         <table class="table is-narrow comments-table">
           <thead class="comments-table">
 
-        {{!--
-        <ul id="name-list" class="list-group">
-          {{#each Rating}}
-          <li value="{{id}}" class="list-group-item">
-            {{UsersId}} is drinking {{BeerId}} and said
-          </li>
-          {{/each}}
-        </ul> --}}
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Guest</th>
-              <th>Beer</th>
-              <th>Comment</th>
-            </tr>
-          </thead>
-          {{#each Output}}
-          <tr>
-            <td>{{userName}}</td>
-            <td>{{beerName}}</td>
-            <td>{{comment}}</td>
-          </tr>
-          {{/each}}
-        </table>
+            {{!--
+            <ul id="name-list" class="list-group">
+              {{#each Rating}}
+              <li value="{{id}}" class="list-group-item">
+                {{UsersId}} is drinking {{BeerId}} and said
+              </li>
+              {{/each}}
+            </ul> --}}
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Guest</th>
+                  <th>Beer</th>
+                  <th>Comment</th>
+                </tr>
+              </thead>
+              {{#each Output}}
+              <tr>
+                <td>{{userName}}</td>
+                <td>{{beerName}}</td>
+                <td>{{comment}}</td>
+              </tr>
+              {{/each}}
+            </table>
       </div>
 
     </div>
   </div>
+      </div>
+    </div>
+  
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

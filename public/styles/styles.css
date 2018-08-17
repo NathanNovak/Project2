@@ -12,11 +12,11 @@ html {
   background:url(../img/bg2.jpeg) no-repeat center;
 }
 #beer-comment{
-  width: 100%;
+  width: 80%;
 }
 
 body {
-  background:rgba(255,255,255,0.4); /* applies a 40% transparent white background */
+  background:rgba(255,255,255,0.2); /* applies a 20% transparent white background */
 }
 
 #appName {
@@ -45,10 +45,19 @@ body {
 #leaderboard {
   padding: 1em;
   z-index: 0;  
+  
 }
 
 #box {
   border: .25em solid rgb(212, 187, 75);
+}
+
+#name-text {
+  width: 70%;
+}
+
+#email-text {
+  width: 20%;
 }
 
 #navbar {
