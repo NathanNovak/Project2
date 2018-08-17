@@ -2,12 +2,18 @@
   line-height: 2.5;
 }
 
+html, body {
+  height:100%;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background:url(../img/bg2.jpeg) no-repeat center;
+}
+
 body {
-  background-image: url("../img/bg2.jpeg");
-  background-size: cover;
-  background-color: #cccccc;
-  height: 100vh;
-  width: 100vw;
+  background:rgba(255,255,255,0.5); /* applies a 50% transparent white background */
 }
 
 #appName {
@@ -23,7 +29,7 @@ body {
 #tableRow{
   font-size: 1.1em;
   font-family: 'Montserrat', sans-serif;
-  line-height: 1.5em;
+  line-height: 1.6em;
 }
 #title {
   font-size: 2.25em;
@@ -32,8 +38,8 @@ body {
 }
 
 #leaderboard {
-  margin: 1em;
-  border-radius: 5%;
+  padding: 1em;
+  z-index: 0;  
 }
 
 #box {
@@ -44,6 +50,7 @@ body {
   background: white;
   height: 1.65em;
   margin: .5em 0 .5em 0;
+  z-index: 0;
 }
 /* .empty_star {
   background-image: url(images/empty_star.png);
