@@ -1,9 +1,8 @@
-<nav class="level is-mobile" id="navbar">
-    <div class="level-item has-text-centered">
+<nav class="level is-mobile is-light" id="navbar">
+  <div class="level-item has-text-centered">
     <div>
-      <p class="heading" id="">
-        <a href="/top">Beer Me!</p>
-      </a>
+      <p class="heading" id="appName">
+        Beer Me!</p>
     </div>
   </div>
   <div class="level-item has-text-centered">
@@ -44,7 +43,7 @@
           <td>
             <a href="localhost:8080/beers/{{this.id}}">{{ this.beerName }}</a>
           </td>
-          <td>{{ this.brewery }}</td>
+          <td>{{ this.brewer }}</td>
           <td>{{ this.ibu }}</td>
           <td>{{ this.rating }}</td>
           </tr>
