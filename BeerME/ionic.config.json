@@ -1,7 +1,0 @@
-{
-  "name": "BeerME",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
-}

@@ -15,6 +15,10 @@
     "logging": false
   },
   "production": {
+    "username": "osl1od2y2dp6l2c5",
+    "password": "hphybpu4kcguc774",
+    "database": "nfb4cnu8wrsxw0ux",
+    "host": "sp6xl8zoyvbumaa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
