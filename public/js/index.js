@@ -34,6 +34,8 @@ $(document).ready(function() {
         url: "api/Rating",
         type: "POST",
         data: Rating
+      }).then(function(data) {
+        console.log("DATA From Rating POST", data);
       });
     },
     getUsers: function() {

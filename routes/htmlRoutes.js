@@ -26,6 +26,7 @@ module.exports = function (app) {
         });
 
       }
+<<<<<<< HEAD
 
       db.Users.findAll({}).then(function(dbUsers) {
         var namesArr = [];
@@ -40,6 +41,21 @@ module.exports = function (app) {
           });
         }
 
+=======
+      db.Users.findAll({}).then(function(dbUsers) {
+        var namesArr = [];
+        for (var i = 0; i < dbUsers.length; i++) {
+          // console.log("Names:", dbUsers[i]);
+          var names = dbUsers[i].username;
+          var id = dbUsers[i].id;
+          // var beer = dbUsers[i].beer;
+          namesArr.push({
+            id: id,
+            name: names
+          });
+        }
+
+>>>>>>> 147c8dd87236c22794389f8a9c08c14fbb27cc16
 
         db.Rating.findAll({}).then(function(dbRating) {
           var ratingArr = [];
@@ -64,6 +80,7 @@ module.exports = function (app) {
           var output = [];
           for (var i = 0; i < ratingArr.length; i++) {
             // console.log("UserID in Rating", ratingArr[i].UsersId);
+<<<<<<< HEAD
             
             output.push({
               userName: getUserName(ratingArr[i].UsersId, namesArr),
@@ -72,6 +89,14 @@ module.exports = function (app) {
             });
           }
           // console.log("UserID in output", output);
+=======
+            var userIdInRating = ratingArr[i].UsersId;
+            output.push({
+              UsersId: userIdInRating
+            });
+          }
+          console.log("UserID in output", output);
+>>>>>>> 147c8dd87236c22794389f8a9c08c14fbb27cc16
           if (namesArr.name === output.UsersId) {
             // console.log(ratingArr.beerId);
           }
@@ -84,7 +109,10 @@ module.exports = function (app) {
           //   ]
           // };
           var beerhbsObject = {
+<<<<<<< HEAD
             Output: output,
+=======
+>>>>>>> 147c8dd87236c22794389f8a9c08c14fbb27cc16
             Beer: beerArr,
             Rating: ratingArr,
             Users: namesArr
