@@ -38,14 +38,14 @@
             <th>Rating</th>
           </tr>
 
-          {{#each daBeer}}
+          {{#each Beer}}
           <tr id="tableRow"></tr>
           <td>
-            <a href="localhost:8080/beers/{{this.id}}">{{ this.beerName }}</a>
+            <a href="localhost:8080/beers/{{id}}">{{ beerName }}</a>
           </td>
-          <td>{{ this.brewer }}</td>
-          <td>{{ this.ibu }}</td>
-          <td>{{ this.rating }}</td>
+          <td>{{ brewer }}</td>
+          <td>{{IBU }}</td>
+          <td>{{ rating }}</td>
           </tr>
           {{/each}}
 
