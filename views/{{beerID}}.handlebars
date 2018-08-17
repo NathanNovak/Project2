@@ -21,33 +21,31 @@
     </div>
   </div>
 </nav>
-{{!-- leaderboard box --}}
+
 <div class="container" id="box">
   <div class="row">
     <div class="card">
-      <div class="card-header card-header-title" id="title">Top beers right now</div>
+      <div class="card-header card-header-title" id="title">All ratings for {{ this.beerName }}</div>
       <div class="card-body" id="leaderboard">
         <table style="width:100%">
           <tr id="tableHead">
-            <th>Beer name</th>
-            <th>Brewery</th>
-            <th>IBU</th>
-            <th>Rating</th>
+            <th>User</th>
+            <th>Comment</th>
           </tr>
 
-          {{#each daBeer}}
+          {{#each rating}}
           <tr id="tableRow"></tr>
           <td>
-            <a href="/beers/{{this.id}}">{{ this.beerName }}</a>
+            {{ this.user }}
           </td>
-          <td>{{ this.brewer }}</td>
-          <td>{{ this.ibu }}</td>
-          <td>{{ this.rating }}</td>
+          <td>{{ this.comment }}</td>
           </tr>
           {{/each}}
 
         </table>
-
+        <ul>
+          {{!-- {{#each beer}} {{/each}} --}}
+        </ul>
       </div>
     </div>
   </div>
