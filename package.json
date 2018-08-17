@@ -17,12 +17,7 @@
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "mysql2": "^1.5.3",
-<<<<<<< HEAD
-=======
-
     "vanilla-modal": "^1.6.5",
-
->>>>>>> f0b4580b19be3023de58dc10657860a3e45e7ad4
     "request": "^2.88.0",
     "sequelize": "^4.38.0"
   },
