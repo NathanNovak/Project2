@@ -1,22 +1,30 @@
-{{!-- nav bar --}}
 <nav class="level is-mobile is-light" id="navbar">
   <div class="level-item has-text-centered">
     <div>
-      <a href="/">
-        <p class="heading" id="appName"><i class="fas fa-beer"></i>
-          &nbsp Beer Me!</p></a>
+      <p class="heading" id="appName">
+        Beer Me!</p>
     </div>
   </div>
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">
-        <a href="/top"><i class="fas fa-list-ol"></i> &nbsp Leaderboard</p>
+        <a href="/top">Leaderboard</p>
+      </a>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Who's here</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">
+        <a href="/">Home</p>
       </a>
     </div>
   </div>
 </nav>
-
-{{!-- leaderboard box --}}
 <div class="container" id="box">
   <div class="row">
     <div class="card">
@@ -33,11 +41,8 @@
           {{#each Beer}}
           <tr id="tableRow"></tr>
           <td>
-<<<<<<< HEAD
             <a href="/beers/{{this.id}}">{{ this.beerName }}</a>
-=======
-            <a href="localhost:8080/beers/{{id}}">{{ beerName }}</a>
->>>>>>> b3155753836bc12f6b885ff0c8ad9cf07d58094c
+
           </td>
           <td>{{ brewer }}</td>
           <td>{{IBU }}</td>
@@ -46,7 +51,9 @@
           {{/each}}
 
         </table>
-
+        <ul>
+          {{!-- {{#each beer}} {{/each}} --}}
+        </ul>
       </div>
     </div>
   </div>
