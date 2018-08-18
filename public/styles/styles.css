@@ -1,38 +1,77 @@
+h3 {
+  font-size: 1.3em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  background-image: url("../img/bg2.jpeg");
+  background-color: #cccccc;
+}
+
 .list-group-item {
   line-height: 2.5;
 }
 
-html, body {
-  height:100%;
-  padding: 0;
-  margin: 0;
+#appName {
+  font-size: 1.5em;
+  font-family: 'Monoton', cursive;
+  background: black;
+  color: white;
+  padding: 0 0.4em 0 0.4em;
 }
 
-html {
-  background:url(../img/bg2.jpeg) no-repeat center;
-}
 #beer-comment{
-  width: 100%;
+  width: 80%;
 }
 
+#beer-select {
+  margin-left: .5em;
+}
+
+#beer-rating {
+  margin-left: 2em;
+}
+
+#box {
+  border: .25em solid rgb(212, 187, 75);
+}
+
+#email-text {
+  width: 65%;
+  margin-left: 2.5em;
+}
+
+#leaderboard {
+  padding: 1em;
+  background:rgba(185, 184, 184, 0.4);
+}
+
+#name-text {
+  width: 65%;
+  margin-left: 0.25em;
+}
 
 #navbar {
   background: white;
-  height: 1.5em;
-  margin: .25em 0 .5em 0;
+  height: 2.1em;
+  margin-bottom: .5em;
+  padding: 0.7em 0 0.5em 0;
+  z-index: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
 }
 
-body {
-  background:rgba(255,255,255,0.5); /* applies a 50% transparent white background */
+#navbar a:hover {
+  background: hsl(204, 86%, 53%);
+  color: white;
 }
 
-#appName {
-  font-size: 1.25em;
-
+#people-here {
+  margin-top: 1em;
 }
 
 #tableHead {
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -41,24 +80,8 @@ body {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.6em;
 }
+
 #title {
-  font-size: 2.25em;
+  font-size: 2.5em;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-}
-
-#leaderboard {
-  padding: 1em;
-  z-index: 0;  
-}
-
-#box {
-  border: .25em solid rgb(212, 187, 75);
-}
-
-#navbar {
-  background: white;
-  height: 1.65em;
-  margin: .5em 0 .5em 0;
-  z-index: 0;
 }
