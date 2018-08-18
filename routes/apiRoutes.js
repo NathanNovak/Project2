@@ -7,16 +7,14 @@ module.exports = function(app) {
   // --------------------------
 
   // Get all examples
-  app.get("/api/beer", function(req, res) {
-    db.beers.findAll({}).then(function(dbBeers) {
+  app.get("/api/Users", function(req, res) {
+    db.Users.findAll({}).then(function(dbUsers) {
       var hbsObject = {
-        Beers: dbBeers
-
+        Users: dbUsers
       };
       console.log("OBJECT IN Users GET", hbsObject);
 
       res.json(dbUsers);
-      // res.render("index", hbsObject);
     });
   });
 
@@ -55,18 +53,28 @@ module.exports = function(app) {
   // --------------------------
   //         Beer
   // --------------------------
-  app.get("/api/Beer", function(req, res) {
-    db.Beer.findAll({}).then(function(dbBeer) {
-      var beerObject = {
-        Beer: dbBeer
-      };
+  // app.get("/api/Beer", function(req, res) {
+  //   db.Beer.findAll({}).then(function(dbBeer) {
+  //     var beerObject = {
+  //       Beer: dbBeer
+  //     };
 
-      console.log("OBJECT IN Beer GET", beerObject);
-      // res.render("index", beerObject);
-      res.json(dbBeer);
+  //     console.log("OBJECT IN Beer GET", beerObject);
+  //     // res.render("index", beerObject);
+  //     res.json(dbBeer);
+  //   });
+  // });
+
+  app.get("/api/beer", function(req, res) {
+    db.Beer.findAll({}).then(function(dbBeers) {
+      var hbsObject = {
+        Beers: dbBeers
+      };
+      // console.log("OBJECT IN Users GET", hbsObject);
+
+      res.json(dbBeers);
     });
   });
-
   // --------------------------
   //         Rating
   // --------------------------
@@ -97,10 +105,4 @@ module.exports = function(app) {
       res.json(dbRating);
     });
   });
-
-  // app.put("/api/Rating/:id", function(req, res){
-  //   db.Rating.update({
-
-  //   })
-  // })
 };
