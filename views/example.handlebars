@@ -1,17 +1,37 @@
-<div class="container">
+{{!-- nav bar --}}
+<nav class="level is-mobile is-light" id="navbar">
+  <div class="level-item has-text-centered">
+    <div>
+      <a href="/">
+        <p class="heading" id="appName"><i class="fas fa-beer"></i>
+          &nbsp Beer Me!</p></a>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">
+        <a href="/top"><i class="fas fa-list-ol"></i> &nbsp Leaderboard</p>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="container" id="box">
   <div class="row">
     <div class="col-8 offset-2">
       <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Example</h5>
+        <div class="card-body" id="leaderboard">
           <p>
-            <strong>ID</strong>: {{example.id}}</p>
+            <strong>Beer Name</strong>: {{name}}</p>
           <p>
-          <p>
-            <strong>Text</strong>: {{example.text}}</p>
-          <p>
-            <strong>Description:</strong> {{example.description}}</p>
-            <a href="/">← Back To Home</a>
+            <p>
+              <strong>Brewer</strong>: {{brewer}}</p>
+            <p>
+              <p>
+                <strong>IBU</strong>: {{ibu}}</p>
+              <p>
+                  <strong>Description:</strong> {{description}}</p>
+                <a href="/top">← Back</a>
         </div>
       </div>
     </div>
