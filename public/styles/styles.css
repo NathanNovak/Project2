@@ -11,7 +11,15 @@ html {
 .list-group-item {
   line-height: 2.5;
 }
+.card{
+  background-color: rgba(185, 184, 184, 0.75);
+  color: aliceblue;
+  margin-top: 3px;
+}
 
+.container{
+  margin-top: 15%;
+}
 #appName {
   font-size: 1.5em;
   font-family: 'Monoton', cursive;
@@ -36,6 +44,10 @@ html {
   border: .25em solid rgb(212, 187, 75);
 }
 
+.card-header-title{
+  justify-content: center;
+  font-size: 20px;
+}
 #email-text {
   width: 65%;
   margin-left: 2.5em;
@@ -43,7 +55,7 @@ html {
 
 #leaderboard {
   padding: 1em;
-  background:rgba(185, 184, 184, 0.4);
+  background: rgba(185, 184, 184, .1);
 }
 
 #name-text {
@@ -82,6 +94,6 @@ html {
 }
 
 #title {
-  font-size: 2.5em;
+  font-size: 5.5em;
   font-family: 'Montserrat', sans-serif;
 }
