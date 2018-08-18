@@ -1,0 +1,52 @@
+{{!-- nav bar --}}
+<nav class="level is-mobile is-light" id="navbar">
+  <div class="level-item has-text-centered">
+    <div><i class="fas fa-beer"></i>
+
+
+      <p class="heading" id="appName">
+        Beer Me!</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">
+        <a href="/top">Leaderboard</p>
+      </a>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">
+        <a href="/">Home</p>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="container" id="box">
+  <div class="card">
+    <div class="card-header card-header-title" id="title">All ratings for {{ this.beerName }}</div>
+    <div class="card-body" id="leaderboard">
+      <table style="width:100%">
+        <tr id="tableHead">
+          <th>User</th>
+          <th>Rating</th>
+        </tr>
+
+        {{#each rating}}
+        <tr id="tableRow"></tr>
+        <td>
+          {{ this.user }}
+        </td>
+        <td>{{ this.rating }}</td>
+        </tr>
+        {{/each}}
+
+      </table>
+      <ul>
+        {{!-- {{#each beer}} {{/each}} --}}
+      </ul>
+    </div>
+  </div>
+</div>
