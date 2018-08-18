@@ -1,104 +1,91 @@
-<nav class="level is-mobile" id="navbar">
+{{!-- nav bar --}}
+<nav class="level is-mobile is-light" id="navbar">
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">
-        <a href="/top">Leaderboard</p>
-      </a>
-    </div>
-  </div>
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">Users</p>
+      <a href="/">
+        <p class="heading" id="appName"><i class="fas fa-beer"></i>
+          &nbsp Beer Me!</p></a>
     </div>
   </div>
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">
-        <a href="/api/Users">Home</p>
+        <a href="/top"><i class="fas fa-list-ol"></i> &nbsp Leaderboard</p>
       </a>
     </div>
   </div>
 </nav>
-<div id="home">
 
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>Welcome To Beer Me!</h2>
-
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-
-        <form class="clearfix mb-4" id="myForm">
-          <div class="control">
-            <label for="example-text">What's Your Username?</label>
-            <input type="text" required id="name-text" class="input" aria-describedby="name-text" placeholder="Enter Username"> {{!--
-            <label for="age-text">How Old Are You?</label>
-            <input type="text" id="age-text" class="form-control" aria-describedby="age-text" placeholder="Enter Age"> --}}
-            <label for="example-text">What's Your Email?</label>
-            <input type="email" required id="email-text" class="form-control" aria-describedby="email-text" placeholder="Enter Email">
+<div class="container" id="box">
+    <div class="card">
+      <h1>{{msg}}</h1>
+      <div class="card-header card-header-title" id="title">Tap & Bottle</div>
+      <div id="leaderboard">
+        <form id="myForm">
+          <label for="example-text">Username:</label>
+          <input class="input is-warning" required id="name-text" type="text" placeholder="Enter username" aria-describedby="name-text">
+          <br> {{!--
+          <label for="age-text">How Old Are You?</label>
+          <input type="text" id="age-text" class="form-control" aria-describedby="age-text" placeholder="Enter Age"> --}}
 
 
-            <label for="exampleFormControlSelect1">Example select</label>
-            <select class="form-control" id="beer-select">
-              {{#each Beer}}
-              <option value="{{id}}">{{beerName}}</option>
-              {{/each}}
-            </select>
-            <select class="form-control" id="beer-rating">
-              <option value="1">Eh</option>
-              <option value="2">Alright</option>
-              <option value="3">Good</option>
-              <option value="4">Damn Good</option>
-              <option value="5">I Have Found God's Nectar</option>
-            </select>
-            <textarea id="beer-comment" rows="4" placeholder="Let us know what you liked about the beer."></textarea>
+          <label for="example-text">Email:</label>
+          <input type="email" required id="email-text" class="input is-warning" aria-describedby="email-text" placeholder="Enter Email">
+          <div class="control has-icons-left">
+            <label>Your beer:</label>
+            <div class="select is-warning has-icons-left">
+              <select id="beer-select">
+                {{#each Beer}}
+                <option value="{{id}}">{{beerName}}</option>
+                {{/each}}
+              </select>
+              <label>Rate it:</label>
+              <div class="select is-warning">
+                <select id="beer-rating">
+                  <option value="1">Eh</option>
+                  <option value="2">Alright</option>
+                  <option value="3">Good</option>
+                  <option value="4">Damn Good</option>
+                  <option value="5">I Have Found God's Nectar</option>
+                </select>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <textarea id="beer-comment" rows="4" class="textarea is-warning" type="text" placeholder="Let us know what you liked about the beer."></textarea>
 
-            <button type='submit' id="myForm" class="btn btn-primary float-right " data-toggle="modal">Submit</button>
-          </div>
+                  <button type='submit' id="myForm" class="button is-fullwidth is-info" data-toggle="modal">Submit</button>
+                </div>
         </form>
-      </div>
-      <div class="col-md-6">
-        </form>
-        <h3>People Here:</h3>
+         <div id="people-here">
+          <h3>People Here:</h3>
 
-        <table class="table is-narrow comments-table">
-          <thead class="comments-table">
-
-        {{!--
-        <ul id="name-list" class="list-group">
-          {{#each Rating}}
-          <li value="{{id}}" class="list-group-item">
-            {{UsersId}} is drinking {{BeerId}} and said
-          </li>
-          {{/each}}
-        </ul> --}}
-        <table class="table">
-          <thead>
+          {{!--
+          <ul id="name-list" class="list-group">
+            {{#each Rating}}
+            <li value="{{id}}" class="list-group-item">
+              {{UsersId}} is drinking {{BeerId}} and said
+            </li>
+            {{/each}}
+          </ul> --}}
+          <table class="table" style="width:100%">
+            <thead>
+              <tr id="tableHead">
+                <th>Guest</th>
+                <th>Beer</th>
+                <th>Comment</th>
+              </tr>
+            </thead>
+            {{#each Output}}
             <tr>
-              <th>Guest</th>
-              <th>Beer</th>
-              <th>Comment</th>
+              <td>{{userName}}</td>
+              <td>{{beerName}}</td>
+              <td>{{comment}}</td>
             </tr>
-          </thead>
-          {{#each Output}}
-          <tr>
-            <td>{{userName}}</td>
-            <td>{{beerName}}</td>
-            <td>{{comment}}</td>
-          </tr>
-          {{/each}}
-        </table>
+            {{/each}}
+          </table>
+        </div>
       </div>
-
     </div>
   </div>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>

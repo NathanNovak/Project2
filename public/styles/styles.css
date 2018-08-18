@@ -12,27 +12,24 @@ html {
   background:url(../img/bg2.jpeg) no-repeat center;
 }
 #beer-comment{
-  width: 100%;
+  width: 80%;
 }
 
-
-#navbar {
-  background: white;
-  height: 1.5em;
-  margin: .25em 0 .5em 0;
-}
-
-body {
-  background:rgba(255,255,255,0.5); /* applies a 50% transparent white background */
+h3 {
+  font-size: 1.3em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #appName {
-  font-size: 1.25em;
-
+  font-size: 1.5em;
+  font-family: 'Monoton', cursive;
+  background: black;
+  color: white;
+  padding: 0 0.4em 0 0.4em;
 }
 
 #tableHead {
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -42,23 +39,52 @@ body {
   line-height: 1.6em;
 }
 #title {
-  font-size: 2.25em;
+  font-size: 2.5em;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
 }
 
 #leaderboard {
   padding: 1em;
-  z-index: 0;  
+  background:rgba(185, 184, 184, 0.4);
 }
 
 #box {
   border: .25em solid rgb(212, 187, 75);
 }
 
+#name-text {
+  width: 65%;
+  margin-left: 0.25em;
+}
+
+#email-text {
+  width: 65%;
+  margin-left: 2.5em;
+}
+
+#beer-select {
+  margin-left: .5em;
+}
+
+#beer-rating {
+  margin-left: 2em;
+}
+
 #navbar {
   background: white;
-  height: 1.65em;
-  margin: .5em 0 .5em 0;
+  height: 2.1em;
+  margin-bottom: .5em;
+  padding: 0.7em 0 0.5em 0;
   z-index: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+}
+
+#navbar a:hover {
+  background: hsl(204, 86%, 53%);
+  color: white;
+}
+
+#people-here {
+  margin-top: 1em;
 }
