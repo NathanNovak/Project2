@@ -18,17 +18,16 @@
 
 {{!-- leaderboard box --}}
 <div class="container" id="box">
-  <div class="row">
-    <div class="card">
-      <div class="card-header card-header-title" id="title">Top beers right now</div>
-      <div class="card-body" id="leaderboard">
-        <table style="width:100%">
-          <tr id="tableHead">
-            <th>Beer name</th>
-            <th>Brewery</th>
-            <th>IBU</th>
-            <th>Rating</th>
-          </tr>
+  <div class="card">
+    <div class="card-header card-header-title" id="title">Top beers right now</div>
+    <div class="card-body" id="leaderboard">
+      <table style="width:100%">
+        <tr id="tableHead">
+          <th>Beer name</th>
+          <th>Brewery</th>
+          <th>IBU</th>
+          <th>Rating</th>
+        </tr>
 
           {{#each Beer}}
           <tr id="tableRow"></tr>
@@ -41,9 +40,8 @@
           </tr>
           {{/each}}
 
-        </table>
+      </table>
 
-      </div>
     </div>
   </div>
 </div>

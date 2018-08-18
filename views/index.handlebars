@@ -17,38 +17,32 @@
 </nav>
 
 <div class="container" id="box">
-  <div class="row">
-    <div class="card">
-      <h1>{{msg}}</h1>
-      <div class="card-header card-header-title" id="title">Tap & Bottle</div>
-      <div id="leaderboard">
-        <form id="myForm">
-          <label for="example-text">Username:</label>
-          <input class="input is-warning" required id="name-text" type="text" placeholder="Enter username" aria-describedby="name-text">
-          <br> {{!--
-          <label for="age-text">How Old Are You?</label>
-          <input type="text" id="age-text" class="form-control" aria-describedby="age-text" placeholder="Enter Age"> --}}
+  <div class="card">
+    <div class="card-header card-header-title" id="title">Tap & Bottle</div>
+    <div id="leaderboard">
+      <form id="myForm">
+        <label for="example-text">Username:</label>
+        <input class="input is-warning" required id="name-text" type="text" placeholder="Enter username" aria-describedby="name-text">
+        <br> {{!--
+        <label for="age-text">How Old Are You?</label>
+        <input type="text" id="age-text" class="form-control" aria-describedby="age-text" placeholder="Enter Age"> --}}
 
-
-          <label for="example-text">Email:</label>
-          <input type="email" required id="email-text" class="input is-warning" aria-describedby="email-text" placeholder="Enter Email">
-          <div class="control has-icons-left">
-            <label for="exampleFormControlSelect1">Your beer:</label>
-            <div class="select is-warning has-icons-left">
-              <select id="beer-select">
-                <option>Old Rasputin</option>
-
-                {{#each Beer}}
-                <option value="{{id}}">{{beerName}}</option>
-                {{/each}}
-              </select>
-
-              <span class="icon is-left">
-                <i class="fas fa-beer"></i>
-              </span>
-            </div>
+        <label for="example-text">Email:</label>
+        <input type="email" required id="email-text" class="input is-warning" aria-describedby="email-text" placeholder="Enter Email">
+        <div class="control has-icons-left">
+          <label>Your beer:</label>
+          <div class="select is-warning has-icons-left">
+            <select id="beer-select">
+              {{#each Beer}}
+              <option value="{{id}}">{{beerName}}</option>
+              {{/each}}
+            </select>
+            <span class="icon is-left">
+              <i class="fas fa-beer"></i>
+            </span>
           </div>
-          <label for="exampleFormControlSelect1">Rate it:</label>
+          <br>
+          <label>Rate it:</label>
           <div class="select is-warning">
             <select id="beer-rating">
               <option value="1">Eh</option>
@@ -58,20 +52,19 @@
               <option value="5">I Have Found God's Nectar</option>
             </select>
           </div>
-          <div class="field">
-            <div class="control">
-              <textarea class="textarea is-warning" type="text" placeholder="Let us know what you liked about the beer."></textarea>
-            </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <textarea id="beer-comment" rows="4" class="textarea is-warning" type="text" placeholder="Let us know what you liked about the beer."></textarea>
+
+            <button type='submit' id="myForm" class="button is-fullwidth is-info" data-toggle="modal">Submit</button>
           </div>
+        </div>
+      </form>
+      <h3 id="people-here">People Here:</h3>
 
-          <a class="button is-fullwidth is-info" data-toggle="modal" type='submit' id="myForm">Submit</a>
-
-        </form>
-      </div>
-      <div class="col-md-6">
-        </form>
-        <div id="people-here">
-          <h3>People Here:</h3>
+      <table class="table is-narrow comments-table" style="width:100%">
+        <thead class="comments-table">
 
           {{!--
           <ul id="name-list" class="list-group">
@@ -81,29 +74,24 @@
             </li>
             {{/each}}
           </ul> --}}
-          <table class="table" style="width:100%">
-            <thead>
-              <tr id="tableHead">
-                <th>Guest</th>
-                <th>Beer</th>
-                <th>Comment</th>
-              </tr>
-            </thead>
-            {{#each Output}}
-            <tr>
-              <td>{{userName}}</td>
-              <td>{{beerName}}</td>
-              <td>{{comment}}</td>
-            </tr>
-            {{/each}}
-          </table>
-        </div>
-      </div>
+          <tr id="tableHead">
+            <th>Guest</th>
+            <th>Beer</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        {{#each Output}}
+        <tr id="tableRow">
+          <td>{{userName}}</td>
+          <td>{{beerName}}</td>
+          <td>{{comment}}</td>
+        </tr>
+        {{/each}}
+      </table>
     </div>
   </div>
 </div>
 </div>
-
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
