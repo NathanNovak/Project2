@@ -1,3 +1,14 @@
+h3 {
+  font-size: 1.3em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  background-image: url("../img/bg2.jpeg");
+  background-color: #cccccc;
+  background-size: cover;
+}
+
 .list-group-item {
   line-height: 2.5;
 }
