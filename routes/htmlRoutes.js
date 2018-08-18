@@ -186,7 +186,7 @@ module.exports = function (app) {
     var beerArr = [];
     db.Beer.findAll({}).then(function(dbBeer) {
       for (var i = 0; i < dbBeer.length; i++) {
-        console.log(dbBeer[7].id);
+        // console.log(dbBeer[7√].id);
         var id = dbBeer[i].id;
         var beer = dbBeer[i].beerName;
         var brewer = dbBeer[i].brewer;
