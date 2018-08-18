@@ -167,7 +167,7 @@ module.exports = function (app) {
           //     }
           //   ]
           // };
-          console.log('BEERARRAY', beerArr);
+          console.log("BEERARRAY", beerArr);
           var leaderboard = {
             Output: output,
             Beer: beerArr,
@@ -179,6 +179,34 @@ module.exports = function (app) {
           // res.render("index", hbsObject);
         });
       });
+    });
+  });
+
+  app.get("/beers/:id", function(req, res){
+    var beerArr = [];
+    db.Beer.findAll({}).then(function(dbBeer) {
+      for (var i = 0; i < dbBeer.length; i++) {
+        console.log(dbBeer[7].id);
+        var id = dbBeer[i].id;
+        var beer = dbBeer[i].beerName;
+        var brewer = dbBeer[i].brewer;
+        var IBU = dbBeer[i].IBU;
+        var desc = dbBeer[i].description;
+        beerArr.push({
+          id: id,
+          beerName: beer,
+          brewer: brewer,
+          IBU: IBU,
+          desc: desc
+        });
+      }
+      var beerInfo = {
+        name: beerArr[req.params.id - 1].beerName,
+        brewer: beerArr[req.params.id - 1].brewer,
+        ibu: beerArr[req.params.id - 1].IBU,
+        description: beerArr[req.params.id - 1].desc
+      };
+      res.render("example", beerInfo);
     });
   });
 };
