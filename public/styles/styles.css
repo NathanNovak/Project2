@@ -6,6 +6,7 @@ h3 {
 html {
   background-image: url("../img/bg2.jpeg");
   background-color: #cccccc;
+  background-size: cover;
 }
 
 .list-group-item {
